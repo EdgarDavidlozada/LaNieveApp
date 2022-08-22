@@ -128,7 +128,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tablaInformes.setHorizontalHeaderLabels(nombreColumnas)
         
         row = 0
-        print(informes)
+        #print(informes)
      
         for endian in informes:
             self.tablaInformes.setRowCount(row + 1)
