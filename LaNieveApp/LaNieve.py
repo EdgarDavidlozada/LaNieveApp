@@ -107,13 +107,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # textos que no encajan
         self.tablaInformes.setTextElideMode(QtCore.Qt.ElideRight)# Qt.ElideNone
         # Establecer el ajuste de palabras del texto 
-        self.tablaInformes.setWordWrap(False)
+        self.tablaInformes.setWordWrap(True)
         # Deshabilitar clasificación
         self.tablaInformes.setSortingEnabled(False)
-        # Establecer el número de columnas
-        self.tablaInformes.setColumnCount(6)
-        # Establecer el número de filas
-        self.tablaInformes.setRowCount(0)
         # Alineación del texto del encabezado
         self.tablaInformes.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter|
                                                           QtCore.Qt.AlignCenter)
@@ -125,23 +121,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tablaInformes.verticalHeader().setVisible(False)
         # Dibujar el fondo usando colores alternados
         self.tablaInformes.setAlternatingRowColors(True)
-        # Establecer altura de las filas
-        self.tablaInformes.verticalHeader().setDefaultSectionSize(20)
-        
-        row = 0
-        print(informes)
         # Establecer el número de columnas
         self.tablaInformes.setColumnCount(5)
         # Establecer el número de filas
         self.tablaInformes.setRowCount(0)
         self.tablaInformes.setHorizontalHeaderLabels(nombreColumnas)
+        
+        row = 0
+        print(informes)
+     
         for endian in informes:
             self.tablaInformes.setRowCount(row + 1)
-            self.tablaInformes.setItem(row, 0,  QtWidgets.QTableWidgetItem(endian[0]))
-            self.tablaInformes.setItem(row, 1, QtWidgets.QTableWidgetItem(endian[1]))
-            self.tablaInformes.setItem(row, 2, QtWidgets.QTableWidgetItem(endian[2]))
-            self.tablaInformes.setItem(row, 3, QtWidgets.QTableWidgetItem(endian[3]))
-            self.tablaInformes.setItem(row, 4, QtWidgets.QTableWidgetItem(endian[4]))
+            self.tablaInformes.setItem(row, 0,  QtWidgets.QTableWidgetItem(str(endian[0])))
+            self.tablaInformes.setItem(row, 1, QtWidgets.QTableWidgetItem(str(endian[1])))
+            self.tablaInformes.setItem(row, 2, QtWidgets.QTableWidgetItem(str(endian[2])))
+            self.tablaInformes.setItem(row, 3, QtWidgets.QTableWidgetItem(str(endian[3])))
+            self.tablaInformes.setItem(row, 4, QtWidgets.QTableWidgetItem(str(endian[4])))
             row += 1
     
 def costos(cosVillavicencio,cosCasanare,cosYopal,cosBogota):
